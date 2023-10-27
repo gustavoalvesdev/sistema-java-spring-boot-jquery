@@ -1,0 +1,22 @@
+package com.backend.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.backend.business.ColaboradorBusiness;
+
+import jakarta.websocket.server.PathParam;
+
+@RestController
+public class ColaboradorController {
+	
+	@Autowired
+	ColaboradorBusiness colaboradorBusiness;
+	
+	@GetMapping
+	public String get(@PathParam(value="id") Integer id) {
+		return "Oi" + id;
+	}
+	
+}

@@ -11022,3 +11022,64 @@ org.eclipse.jface.text.BadLocationException
 	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
 	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
 	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+
+!ENTRY org.eclipse.jface 2 0 2023-10-27 17:15:45.593
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-10-27 17:15:45.593
+!MESSAGE A conflict occurred for CTRL+R:
+Binding(CTRL+R,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.RunToLine,Run to Line,
+		Resume and break when execution reaches the current line,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.debug.ui.commands.RunToLine"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.debug.ui.debugging,,,system)
+Binding(CTRL+R,
+	ParameterizedCommand(Command(org.springframework.ide.eclipse.boot.restart.commands.restart,Trigger Restart,
+		Restart Spring Boot Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		WorkbenchHandlerServiceHandler("org.springframework.ide.eclipse.boot.restart.commands.restart"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.debug.ui.console,,,system)
+
+!ENTRY Activator 4 0 2023-10-27 17:20:52.209
+!MESSAGE DebugException: Launch configuration backend - BackendApplication at file:/C:/Users/Gustavo/Documents/workspace-spring-tool-suite/.metadata/.plugins/org.eclipse.debug.core/.launches/backend%20-%20BackendApplication.launch does not exist.
+!STACK 1
+org.eclipse.debug.core.DebugException: Launch configuration backend - BackendApplication at file:/C:/Users/Gustavo/Documents/workspace-spring-tool-suite/.metadata/.plugins/org.eclipse.debug.core/.launches/backend%20-%20BackendApplication.launch does not exist.
+	at org.eclipse.debug.internal.core.LaunchManager.createDebugException(LaunchManager.java:903)
+	at org.eclipse.debug.internal.core.LaunchManager.getInfo(LaunchManager.java:1377)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.getInfo(LaunchConfiguration.java:487)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.getType(LaunchConfiguration.java:643)
+	at org.springframework.ide.eclipse.boot.dash.model.LaunchConfDashElementFactory.createOrGet(LaunchConfDashElementFactory.java:81)
+	at org.springframework.ide.eclipse.boot.dash.model.BootProjectDashElement$5.apply(BootProjectDashElement.java:228)
+	at org.springframework.ide.eclipse.boot.dash.model.BootProjectDashElement$5.apply(BootProjectDashElement.java:1)
+	at org.springsource.ide.eclipse.commons.livexp.core.MapSet.compute(MapSet.java:44)
+	at org.springsource.ide.eclipse.commons.livexp.core.MapSet.compute(MapSet.java:1)
+	at org.springsource.ide.eclipse.commons.livexp.core.LiveExpression.refresh(LiveExpression.java:74)
+	at org.springsource.ide.eclipse.commons.livexp.core.AsyncLiveExpression.syncRefresh(AsyncLiveExpression.java:134)
+	at org.springsource.ide.eclipse.commons.livexp.core.AsyncLiveExpression.refresh(AsyncLiveExpression.java:129)
+	at org.springsource.ide.eclipse.commons.livexp.core.LiveExpression$1.gotValue(LiveExpression.java:116)
+	at org.springsource.ide.eclipse.commons.livexp.core.LiveExpression.changed(LiveExpression.java:137)
+	at org.springsource.ide.eclipse.commons.livexp.core.AsyncLiveExpression.syncChanged(AsyncLiveExpression.java:152)
+	at org.springsource.ide.eclipse.commons.livexp.core.AsyncLiveExpression.changed(AsyncLiveExpression.java:147)
+	at org.springsource.ide.eclipse.commons.livexp.core.LiveSetVariable.syncRefresh(LiveSetVariable.java:88)
+	at org.springsource.ide.eclipse.commons.livexp.core.AsyncLiveExpression.refresh(AsyncLiveExpression.java:129)
+	at org.springsource.ide.eclipse.commons.livexp.core.LiveSetVariable.replaceAll(LiveSetVariable.java:168)
+	at org.springframework.ide.eclipse.boot.dash.util.LaunchConfigurationTracker$2.run(LaunchConfigurationTracker.java:128)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.debug.core 4 5012 2023-10-27 17:20:52.211
+!MESSAGE Launch configuration backend - BackendApplication at file:/C:/Users/Gustavo/Documents/workspace-spring-tool-suite/.metadata/.plugins/org.eclipse.debug.core/.launches/backend%20-%20BackendApplication.launch does not exist.
+
+!ENTRY org.eclipse.lsp4e 2 0 2023-10-27 17:21:40.467
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
