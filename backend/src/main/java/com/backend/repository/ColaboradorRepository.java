@@ -1,8 +1,9 @@
 package com.backend.repository;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Repository
-public class ColaboradorRepository {
+import com.backend.entity.ColaboradorEntity;
+
+public interface ColaboradorRepository extends JpaRepository<ColaboradorEntity, Integer> {
 
 }
