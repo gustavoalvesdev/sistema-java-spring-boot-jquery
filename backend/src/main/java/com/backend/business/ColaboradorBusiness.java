@@ -22,4 +22,7 @@ public class ColaboradorBusiness {
 		return colaboradorRepository.findAll();
 	}
 	
+	public ColaboradorEntity save(ColaboradorEntity colaboradorEntity) {
+		return colaboradorRepository.save(colaboradorEntity);
+	}
 }
