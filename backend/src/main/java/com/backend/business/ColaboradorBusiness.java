@@ -28,19 +28,16 @@ public class ColaboradorBusiness {
 		return colaboradorRepository.save(colaboradorEntity);
 	}
 	
-	public int calcularComplexidade(String password) {
-		int lengthScore = Math.min(password.length() / 2, 5);
-        int uppercaseScore = password.matches(".*[A-Z].*") ? 5 : 0;
-        int lowercaseScore = password.matches(".*[a-z].*") ? 5 : 0;
-        int digitScore = password.matches(".*\\d.*") ? 5 : 0;
-
-        // You can customize the special characters based on your requirements
-        String specialChars = "!@#$%^&*()-_=+[]{}|;:'\",.<>?/";
-        int specialCharScore = password.matches(".*[" + specialChars + "].*") ? 5 : 0;
-
-        // You can adjust weights for different criteria based on your requirements
-        int totalScore = lengthScore + uppercaseScore + lowercaseScore + digitScore + specialCharScore;
-
-        return totalScore;
+	public String calcularComplexidade(String password) {
+		if (password.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\\$%\\^&\\*])(?=.{8,})")){
+		    return "Forte";
+		} else if (password.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})")){
+		    return "Aceitável";
+		} else if (password.matches("^(?=.*[a-z])(?=.*[0-9])(?=.{8,})")){
+		    return "Fraca";
+		} else {
+		    return "Muito Fraca";
+		}
 	}
+
 }

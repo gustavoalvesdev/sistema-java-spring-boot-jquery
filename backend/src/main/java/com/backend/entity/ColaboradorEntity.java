@@ -22,7 +22,7 @@ public class ColaboradorEntity {
 	String senha;
 	
 	@Column(name="score")
-	Integer score;
+	String score;
 	
 	@ManyToOne
 	@JoinColumn(name="id_chefe")
@@ -52,11 +52,11 @@ public class ColaboradorEntity {
 		this.senha = senha;
 	}
 	
-	public Integer getScore() {
+	public String getScore() {
 		return score;
 	}
 	
-	public void setScore(Integer score) {
+	public void setScore(String score) {
 		this.score = score;
 	}
 	

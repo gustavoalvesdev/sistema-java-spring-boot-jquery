@@ -32,4 +32,9 @@ public class ColaboradorController {
 	public ColaboradorEntity post(@RequestBody ColaboradorEntity colaboradorEntity) {
 		return colaboradorBusiness.save(colaboradorEntity);
 	}
+	
+//	@PostMapping("")
+//	public ColaboradorEntity put(@RequestBody ColaboradorEntity colaboradorEntity) {
+//		return colaboradorBusiness.save(colaboradorEntity);
+//	}
 }
